@@ -7,7 +7,7 @@ import time
 
 # Global Constants
 SCANNED_IMAGES_DIR = 'scannedImages'
-REACT_APP_DIR = 'frontend'
+REACT_APP_DIR = 'front-end'
 
 # Global variables for tracking processes
 flask_process = None
@@ -29,7 +29,6 @@ def run_flask_app():
 # Run react app in the background
 def run_react_app():
     os.chdir(REACT_APP_DIR)
-    subprocess.call(["npm", "run build"])  # Build the react app
     global react_process
     env = os.environ.copy()  # Get a copy of the current environment variables
     env["BROWSER"] = "none"  # Set BROWSER environment variable
