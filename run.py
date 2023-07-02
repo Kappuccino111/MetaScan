@@ -24,7 +24,7 @@ def create_directory():
 # Run flask app in the background
 def run_flask_app():
     global flask_process
-    flask_process = subprocess.Popen(["python3", "backend.py"])
+    flask_process = subprocess.Popen(["python3", "server.py"])
 
 # Run react app in the background
 def run_react_app():
