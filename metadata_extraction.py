@@ -95,7 +95,6 @@ class MetadataExtractor(OCRProcessor):
         entity_dict = {}
         for ent in doc.ents:
             entity_dict.setdefault(ent.label_, []).append(ent.text)
-        nlp.close()
         return entity_dict
 
     def extract_file_metadata(self, filename):
