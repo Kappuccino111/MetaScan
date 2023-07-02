@@ -12,7 +12,8 @@ test_images_folder = 'testImages'  # path to the test images folder
 def get_folder_path(target_folder):
     """Returns the path of a new folder to be created in the target folder."""
     folder_count = sum(os.path.isdir(os.path.join(target_folder, name)) for name in os.listdir(target_folder))
-    new_folder_name = f"Image_{folder_count + 1}"
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    new_folder_name = f"Image_{timestamp}"
     folder_path = os.path.join(target_folder, new_folder_name)
     return folder_path
 
