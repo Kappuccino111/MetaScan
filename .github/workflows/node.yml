@@ -22,16 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        
-    - name: Navigate to frontend directory
-      run: cd frontend
-      working-directory: /frontend
-
-    - name: Install frontend dependencies
-      run: npm ci
-
-    - name: Build frontend
-      run: npm run build --if-present
-
-    - name: Test frontend
-      run: npm test
+        cache-dependency-path: "frontend/"
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
