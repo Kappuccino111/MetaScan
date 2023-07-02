@@ -1,6 +1,7 @@
 import os
 import sane
 import random
+from datetime import datetime
 from PIL import Image
 from metadata_extraction import MetadataExtractor
 
