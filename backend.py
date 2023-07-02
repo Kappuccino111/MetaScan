@@ -8,6 +8,7 @@ import shutil
 import time
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit
+from werkzeug.utils import secure_filename
 
 import logging
 logging.getLogger('socketio').setLevel(logging.CRITICAL)
@@ -83,10 +84,11 @@ scanned_images_dir = 'scannedImages'
 observer.schedule(event_handler, scanned_images_dir, recursive=False)
 observer.start()
 
-
 @app.route('/image/<folder_name>/<filename>')
 def serve_image(folder_name, filename):
-    return send_from_directory(os.path.join(scanned_images_dir, folder_name), filename)
+    safe_folder_name = secure_filename(folder_name)
+    safe_filename = secure_filename(filename)
+    return send_from_directory(os.path.join(scanned_images_dir, safe_folder_name), safe_filename)
 
 # Route for the home page
 @app.route('/', methods=['GET', 'POST'])
