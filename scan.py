@@ -5,14 +5,13 @@ from datetime import datetime
 from PIL import Image
 from metadata_extraction import MetadataExtractor
 
-
-target_folder = 'scannedImages'
-test_images_folder = 'testImages'  # path to the test images folder
+target_folder = 'scannedImages' # folder where scanned images along with their metadata will be stored.
+test_images_folder = 'testImages'  # folder containing the test images for test scans.
 
 
 def get_folder_path(target_folder):
     """Returns the path of a new folder to be created in the target folder."""
-    folder_count = sum(os.path.isdir(os.path.join(target_folder, name)) for name in os.listdir(target_folder))
+    
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     new_folder_name = f"Image_{timestamp}"
     folder_path = os.path.join(target_folder, new_folder_name)
@@ -21,16 +20,15 @@ def get_folder_path(target_folder):
 
 def ask_for_test_mode():
     """Asks the user if they want to run in test mode and returns the response."""
+    
     response = input("Would you like to run in test mode? (yes/no): ")
     return response.lower() == 'yes'
 
 
 def scan_and_store_document(target_folder, test_image_path, test_mode=False):
-    """
-    Scans and stores a document in the target folder. 
-    If a scanner is not available or test_mode is True, uses a test image.
-    """
-    # Create a folder to store the image and metadata
+    """ Scans and stores a document in the target folder.If a scanner is not available or test_mode is True, uses a test image."""
+   
+    # Creating a folder for storing the image and it's metadata
     folder_path = get_folder_path(target_folder)
     os.makedirs(folder_path, exist_ok=True)
 
@@ -72,7 +70,7 @@ def scan_and_store_document(target_folder, test_image_path, test_mode=False):
         else:
             scanned_image = Image.open(test_image_path)  # Use the test image
 
-        # If the image has an alpha (transparency) channel or is in mode 'P', convert it to RGB
+        # If the image has an alpha channel or is in mode 'P', convert it to RGB
         if scanned_image.mode in ['RGBA', 'P']:
             scanned_image = scanned_image.convert('RGBA').convert('RGB')
 
@@ -104,10 +102,10 @@ def scan_and_store_document(target_folder, test_image_path, test_mode=False):
 
 test_mode = ask_for_test_mode()
 
-# Get a list of all files in the directory
+# Get a list of all files in the directory for test mode
 test_images = os.listdir(test_images_folder)
 
-# Select a random image from the directory
+# Select a random image from the directory for testing if test-mode is true or if no scanners were found
 test_image_path = os.path.join(test_images_folder, random.choice(test_images))
 
 scan_and_store_document(target_folder, test_image_path, test_mode=test_mode)
