@@ -1,19 +1,22 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
-import './App.css';
 import { fetchInitialData, search, reset, deleteFolder } from './API';
-import SearchForm from './SearchForm';
-import ImagePreview from './ImagePreview';
-import ImageTable from './ImageTable';
+import SearchForm from './components/SearchForm';
+import ImagePreview from './components/ImagePreview';
+import ImageTable from './components/ImageTable';
 
-const socket = io('http://localhost:5000');
+import './App.css';
+
+const SOCKET_SERVER_URL = 'http://localhost:5000';
 
 function App() {
-  const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [data, setData] = useState([]); 
+  const [searchTerm, setSearchTerm] = useState(''); 
   const [previewImage, setPreviewImage] = useState(null); 
 
   useEffect(() => {
+    // Establishing socket connection and fetching initial data
+    const socket = io(SOCKET_SERVER_URL);
     fetchInitialData(socket, setData);
   }, []);
 
@@ -21,20 +24,23 @@ function App() {
     <div className="App">
       <h1>Image Metadata Database</h1>
 
-      <SearchForm 
-        searchTerm={searchTerm} 
+      {/* Search form component */}
+      <SearchForm
+        searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         search={search}
         reset={reset}
         setData={setData}
       />
 
-      <ImagePreview 
+      {/* Image preview component */}
+      <ImagePreview
         previewImage={previewImage}
         setPreviewImage={setPreviewImage}
       />
 
-      <ImageTable 
+      {/* Image table component */}
+      <ImageTable
         data={data}
         setPreviewImage={setPreviewImage}
         deleteFolder={deleteFolder}
