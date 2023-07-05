@@ -70,7 +70,7 @@ def delete_folder(folder_id):
 
     return config.redirect(config.url_for('index'))
 
-
+# File level testing
 if __name__ == '__main__':
     create_table()
 
@@ -87,6 +87,5 @@ if __name__ == '__main__':
 
     observer.join()
 
-    # Close the database connection
     db = get_db()
     db.close()
