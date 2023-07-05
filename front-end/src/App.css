@@ -51,8 +51,8 @@ h1 {
   background-color: #374151;
   color: #D1D5DB;
   border: none;
-  padding: 12px 24px; /* Increased padding for bigger buttons */
-  border-radius: 30px; /* Increased border-radius for rounder buttons */
+  padding: 12px 24px; 
+  border-radius: 30px; 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: medium;
@@ -132,8 +132,8 @@ h1 {
   background-color: #374151;
   color: #D1D5DB;
   border: none;
-  padding: 12px 24px; /* Increased padding for bigger buttons */
-  border-radius: 30px; /* Increased border-radius for rounder buttons */
+  padding: 12px 24px; 
+  border-radius: 30px; 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-bottom: 20px;
@@ -163,8 +163,8 @@ h1 {
   background-color: #374151;
   color: #D1D5DB;
   border: none;
-  padding: 12px 24px; /* Increased padding for bigger buttons */
-  border-radius: 30px; /* Increased border-radius for rounder buttons */
+  padding: 12px 24px; 
+  border-radius: 30px; 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: medium;
