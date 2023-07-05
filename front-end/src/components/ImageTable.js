@@ -1,5 +1,35 @@
 import React from 'react';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:5000';
+
+// Component function for generating Table Rows
+function TableRow({ item, handlePreview, handleDelete }) {
+  
+  // Constructing the image URL for preview
+  const imageUrl = `${BASE_URL}/image/${item.folder_name}/image.jpg`;
+
+  return (
+    <tr key={item.id}>
+      <td>{item.id}</td>
+      <td>{item.folder_name}</td>
+      <td>
+        <img
+          className='previewImage'
+          src={imageUrl}
+          alt={`Preview of ${item.folder_name}`}
+        />
+      </td>
+      <td>
+        <div className='action'>
+          <button onClick={() => handlePreview(imageUrl)}>Preview</button>
+          <button onClick={() => handleDelete(item.id)}>Delete</button>
+        </div>
+      </td>
+    </tr>
+  );
+}
+
+// Component Function for displaying final set of images
 function ImageTable({ data, setPreviewImage, deleteFolder, setData }) {
   const handlePreview = (imageUrl) => {
     setPreviewImage(imageUrl);
@@ -21,22 +51,12 @@ function ImageTable({ data, setPreviewImage, deleteFolder, setData }) {
       </thead>
       <tbody>
         {data.map((item) => (
-          <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.folder_name}</td>
-            <td>
-              <img className='previewImage'
-                src={`http://localhost:5000/image/${item.folder_name}/image.jpg`}
-                alt="Preview Not Available"
-              />
-            </td>
-            <td>
-              <div className='action'>
-                <button onClick={() => handlePreview(`http://localhost:5000/image/${item.folder_name}/image.jpg`)}>Preview</button>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
-              </div>
-            </td>
-          </tr>
+          <TableRow
+            key={item.id}
+            item={item}
+            handlePreview={handlePreview}
+            handleDelete={handleDelete}
+          />
         ))}
       </tbody>
     </table>
