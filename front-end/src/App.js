@@ -1,9 +1,3 @@
-if (typeof setImmediate === 'undefined') {
-   var setImmediate = function(callback) {
-      setTimeout(callback, 0);
-   };
-}
-
 import React, { useEffect, useState} from 'react';
 import { io } from 'socket.io-client';
 import './App.css';
