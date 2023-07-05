@@ -7,10 +7,10 @@ from config import app, socketio, SCAN_DIRECTORY, secure_filename
 from database import create_table, get_db
 from file_system_handler import FolderEventHandler
 
-
 @app.route('/image/<folder_name>/<filename>')
 def serve_image(folder_name, filename):
-    """Serve an image file."""
+    """Serve the image file as a preview."""
+    
     safe_folder_name = secure_filename(folder_name)
     safe_filename = secure_filename(filename)
     return config.send_from_directory(os.path.join(SCAN_DIRECTORY, safe_folder_name), safe_filename)
@@ -18,7 +18,8 @@ def serve_image(folder_name, filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    """Homepage route."""
+    """Funtion for homepage routing."""
+    
     if config.request.method == 'POST':
         search_query = config.request.get_json().get('search', '')
 
@@ -28,28 +29,29 @@ def index():
         rows = cursor.fetchall()
         cursor.close()
 
-        # Convert rows to list of dictionaries
+        # Conversion to a list of dictionaries for frontend support
         rows = [{'id': row[0], 'folder_name': row[1], 'metadata': row[2]} for row in rows]
 
         return config.jsonify(rows)
 
     else:
-        # Fetch all rows from the 'images' table
+        # If no search operation then return to default state
         database = get_db()
         cursor = database.cursor()
         cursor.execute('SELECT * FROM images')
         rows = cursor.fetchall()
         cursor.close()
 
-    # Render the HTML template and pass the rows to it
-    # return render_template('index.html', rows=rows)
     rows = [{'id': row[0], 'folder_name': row[1], 'metadata': row[2]} for row in rows]
+
+    # JSON representation
     return config.jsonify(rows)
 
 
 @app.route('/delete/<int:folder_id>', methods=['POST'])
 def delete_folder(folder_id):
-    """Delete a folder."""
+    """Function for deleting folder through frontend."""
+    
     # Retrieve the folder name from the database
     database = get_db()
     cursor = database.cursor()
@@ -79,7 +81,6 @@ if __name__ == '__main__':
     observer.start()
 
     try:
-        # app.run(debug=False, use_reloader=False)
         socketio.run(app, debug=False, use_reloader=False)
     except KeyboardInterrupt:
         observer.stop()
