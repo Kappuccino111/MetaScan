@@ -1,34 +1,49 @@
 import axios from 'axios';
 
+const FRONTEND_URL = 'http://localhost:5000/';
+
+// Function for updating data and state
+const fetchDataAndUpdate = async (url, setData) => {
+  try {
+    const result = await axios.get(url);
+    setData(result.data, null); 
+  } catch (error) {
+    setData(null, error);
+  }
+};
+
+// Function for setting up socket event 
 export async function fetchInitialData(socket, setData) {
-  const fetchData = async () => {
-    const result = await axios('http://localhost:5000/');
-    setData(result.data);
-  };
+  const fetchData = () => fetchDataAndUpdate(FRONTEND_URL, setData);
 
   fetchData();
   socket.on('folder_updated', fetchData);
 
-  // Clean up the effect
   return () => socket.off('folder_updated', fetchData);
 }
 
+// Function for performing search operation
 export async function search(searchTerm, setData) {
-  const result = await axios.post('http://localhost:5000/', {
-    search: searchTerm,
-  });
-
-  setData(result.data);
+  try {
+    const result = await axios.post(FRONTEND_URL, { search: searchTerm });
+    setData(result.data, null);
+  } catch (error) {
+    setData(null, error);
+  }
 }
 
+// Function for resetting search operation
 export async function reset(setData, setSearchTerm) {
-  const result = await axios.get('http://localhost:5000/');
-  setData(result.data);
+  fetchDataAndUpdate(FRONTEND_URL, setData);
   setSearchTerm('');
 }
 
+// Function for deleting folders through frontend
 export async function deleteFolder(folderId, setData) {
-  await axios.post(`http://localhost:5000/delete/${folderId}`);
-  const result = await axios.get('http://localhost:5000/');
-  setData(result.data);
+  try {
+    await axios.post(`${FRONTEND_URL}/delete/${folderId}`);
+    fetchDataAndUpdate(FRONTEND_URL, setData);
+  } catch (error) {
+    setData(null, error);
+  }
 }
