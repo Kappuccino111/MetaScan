@@ -77,7 +77,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
     brew install tesseract
     ```
 
-7. **Installing SANE binaries** 📚
+7. **Installing SANE binaries** 
 
     - On Linux
     ```bash
@@ -90,7 +90,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
     brew install sane-backends
     ```
 
-8. **Setup the front-end server** ⚙️
+8. **Setup the front-end server** 
 
     a) **Node.js and npm Installation** 
     
@@ -113,7 +113,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
       npm install 
       ```
 
-9. **Run the Application** 🏃
+9. **Run the Application** 
 
     The application can be run using 
     ```bash
