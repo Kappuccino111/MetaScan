@@ -125,11 +125,27 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
     python3 run.py
     ```
 
+## Demo 
+
+Once you execute the `run.py` file you will be led to the following CLI Interface: <br><br>
+![CLI](https://github.com/Kappuccino111/MetaScan/assets/120595108/5c853db2-7354-4c2c-9c5a-ff00e0031f0e)
+
+1) **You can Scan in test mode or connect to a real Scanner by running Option 1.**
+
+2) **Once you have a Scanned Image or a Test Image you can select Option 2. The webpage is then accessible at `http://localhost:3000`.**
+
+  ![Option2](https://github.com/Kappuccino111/MetaScan/assets/120595108/8df802f9-03f4-4af0-8750-090392233c96)
+
+3) **Searching in the metadata** 
+
+
+
+
 ## Future Packaging 📦
 
 The prototype for MetaScan has been developed in Python , with the project's design executed to accommodate future expansion and compatibility with other programming languages, such as C or C++. Each component of the code has been designed to be individually extractable, which enables the enhancement of specific functions or components without impacting the entire system.
 
-The future scope includes the creation of a wrapper to facilitate integration with C or C++ code. This will allow us to leverage Scanning libraries being developed in these languages, such as for PAPPL or other open-source scanning software, thereby extending MetaScan's capabilities and enhancing its performance.
+The future scope includes the creation of a wrapper to facilitate integration with C or C++ code and better metadata extraction for more enhanced searches. This will allow us to leverage Scanning libraries being developed in these languages, such as for PAPPL or other open-source scanning software, thereby extending MetaScan's capabilities and enhancing its performance.
 
 ## Current Work 🚧
 
