@@ -3,7 +3,6 @@ Flask-Cors
 Flask-SocketIO
 python-dotenv
 watchdog
-sqlite3
 nltk
 spacy
 Pillow
