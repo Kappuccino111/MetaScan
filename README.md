@@ -34,7 +34,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
 - **Flask** : Backend server setup
 - **React** : Frontend user interface
 
-## Getting Started 🛠️
+## Getting Started 
 
 1. **Clone the repository from GitHub** <br>
   	If you have git installed on your machine, you can clone the repository by using the following command in your terminal or command prompt:
