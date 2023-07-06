@@ -38,9 +38,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
 
 1. **Clone the repository from GitHub**  <br>
     ```bash
-   
-
-git clone https://github.com/Kappuccino111/MetaScan.git
+    git clone https://github.com/Kappuccino111/MetaScan.git
     ```
   
 2. **Navigate to the project directory**  <br>
