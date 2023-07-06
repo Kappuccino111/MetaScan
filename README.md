@@ -138,6 +138,7 @@ Once you execute the `run.py` file you will be led to the following CLI Interfac
 
 3) **Searching in the metadata** 
 
+[Demo.webm](https://github.com/Kappuccino111/MetaScan/assets/120595108/9db3b412-e6b0-4c70-aee8-1b9056ee7e18)
 
 
 
