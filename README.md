@@ -32,7 +32,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
 - **NLP Techniques** : Lemmatisation , Stop word removal , Named Entity Recognition
 - **SQLite** : Data storage and retrieval
 - **Flask** : Backend server setup
-- **React** ⚛: Frontend user interface
+- **React** : Frontend user interface
 
 ## Getting Started 🚀
 
