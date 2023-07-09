@@ -4,6 +4,7 @@ Flask-SocketIO
 python-dotenv
 watchdog
 nltk
+numpy
 spacy
 Pillow
 opencv-python
