@@ -57,14 +57,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
      source env/bin/activate 
      ```
 
-5. **Install the required Python packages** 
-  
-    ```python
-    pip install -r requirements.txt
-    python -m spacy download en_core_web_sm
-    ```
-
-6. **Installing Tesseract Binaries** 
+5. **Installing Tesseract Binaries** 
 
     - On Linux
     ```python
@@ -77,7 +70,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
     brew install tesseract
     ```
 
-7. **Installing SANE binaries** 
+6. **Installing SANE binaries** 
 
     - On Linux
     ```bash
@@ -88,6 +81,13 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
     - On macOS
     ```bash
     brew install sane-backends
+    ```
+
+7. **Install the required Python packages** 
+  
+    ```python
+    pip install -r requirements.txt
+    python -m spacy download en_core_web_sm
     ```
 
 8. **Setup the front-end server** 
