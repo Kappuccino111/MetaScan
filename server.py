@@ -81,7 +81,7 @@ if __name__ == '__main__':
     observer.start()
 
     try:
-        socketio.run(app, debug=False, use_reloader=False)
+        socketio.run(app, host='0.0.0.0', port=5000, debug=False, use_reloader=False)
     except KeyboardInterrupt:
         observer.stop()
 
