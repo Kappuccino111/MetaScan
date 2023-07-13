@@ -82,7 +82,7 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
     - On Linux
     ```bash
     sudo apt get install sane
-    sudo apt-get install sane sane-utils libsane-extras xsane
+    sudo apt-get install sane sane-utils xsane
     ```
     
     - On macOS
