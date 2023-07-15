@@ -34,7 +34,31 @@ MetaScan ensures a seamless transition from a physical document to a digitised, 
 - **Flask** : Backend server setup
 - **React** : Frontend user interface
 
-## Getting Started 🚀
+## Getting Started : Docker Setup🚀
+
+1. **Docker Setup** <br>
+    You can follow instructions [here](https://docs.docker.com/desktop/) to get Docker downloaded for your machine. <br>
+    *Incase you have docker setup you can skip this step.*
+
+2. **Creating Folders** <br>
+    Create a folder named *scannedImages* and a file named *image_database.db* on your system. Make sure to copy the entire paths to both of these.
+
+3. **Clone the repository from GitHub**  <br>
+    ```bash
+    git clone https://github.com/Kappuccino111/MetaScan.git
+    ```
+  
+4. **Navigate to the project directory**  <br>
+    ```bash
+    cd MetaScan
+    ```
+5. **Install MetaScan**<br>
+   ```bash
+   sudo docker build -t metaScan .
+   sudo docker run -p 5000:5000 -p 3000:3000 -v /path/to/scannedImages:/app/scannedImages -v /path/to/image_database.db:/app/image_database.db -it metaScan
+   ```
+
+## Getting Started : Normal Setup🚀
 
 1. **Clone the repository from GitHub**  <br>
     ```bash
