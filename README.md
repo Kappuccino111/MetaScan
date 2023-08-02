@@ -4,9 +4,10 @@
 
 MetaScan is an innovative prototype solution crafted to streamline the management of extensive scanned document archives. It resolves the typical issues of document organization and retrieval by establishing a robust metadata archival system. Beyond just digitising documents, MetaScan intelligently identifies, extracts, and archives crucial information from each scanned document. This feature significantly simplifies document retrieval, empowering users to find specific documents based on their content, not just their titles. By enhancing how we archive and retrieve scanned documents, MetaScan aims to drastically boost efficiency and productivity in environments where document scanning is a regular necessity.
 
-*This project is created as a demo submission for the upcoming Ubuntu Summit 2023 along with my ongoing [work](https://github.com/michaelrsweet/pappl/pull/249) for PAPPL. Here is the poster for the same:* <br><br>
+*This project is created for my talk in the upcoming Ubuntu Summit 2023 along with my ongoing [work](https://github.com/michaelrsweet/pappl/pull/249) for PAPPL. Here is the poster for the same:* <br><br>
 ![Poster_ScaniVerse](https://github.com/Kappuccino111/MetaScan/assets/120595108/abfeb22a-f365-49e5-9b3b-f8be621b2064)
 
+**The talk schedule will be announced [here](https://ubuntu.com/blog/ubuntu-summit-2023) soon.**
 
 ## Workflow ⚙️
 
